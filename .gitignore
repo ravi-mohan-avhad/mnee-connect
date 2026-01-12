@@ -165,6 +165,9 @@ build/
 *.tgz
 *.tar.gz
 
+# Project-specific ignores
+video/
+
 # Web3 specific
 .metamask/
 .ipfs/
