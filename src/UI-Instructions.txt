@@ -1,0 +1,137 @@
+
+Create a modern, professional responsive web application with a cosmic-themed glassmorphism design system. 
+The UI should be elegant, futuristic, and highly usable with the following characteristics:
+
+### DESIGN PHILOSOPHY
+- **Theme:** Cosmic/Space aesthetic with professional business feel
+- **Style:** Glassmorphism (frosted glass effects) with gradient accents
+- **Animation:** Smooth, purposeful transitions using Framer Motion
+- **Accessibility:** Full dark mode support with high contrast
+
+### COLOR PALETTE
+
+**Light Mode:**
+- Background: Gradient from gray-50 → blue-50 → purple-50
+- Cards: White with 70-80% opacity, backdrop blur
+- Primary: Blue-600 to Purple-600 gradients
+- Text: Gray-900 for headings, Gray-600 for secondary
+- Borders: White/50% opacity with subtle shadows
+
+**Dark Mode:**
+- Background: Gradient from gray-900 → blue-950 → purple-950
+- Cards: Gray-800 with 70-80% opacity, backdrop blur
+- Primary: Blue-400 to Purple-400 gradients
+- Text: White for headings, Gray-400 for secondary
+- Borders: Gray-700/50% opacity with glow effects
+
+**Accent Colors:**
+- Success: Green-500 to Emerald-500 gradient
+- Warning: Orange-500 to Amber-500 gradient
+- Error: Red-500 to Pink-500 gradient
+- Info: Blue-500 to Indigo-500 gradient
+
+### VISUAL EFFECTS
+
+**Background:**
+- Animated particle system (20 floating gradient orbs)
+- Subtle movement using Framer Motion
+- Large blurred circles (300-400px) with 10-20% opacity
+- Random positioning with slow drift animation
+- Colors: Primary-400/20 to Purple-400/20 gradients
+
+**Cards/Containers:**
+- Rounded corners (16-24px border-radius)
+- Backdrop blur (blur-xl)
+- White/70% or Gray-800/70% background
+- Soft shadows with colored glow on hover
+- Border: 1px solid with 50% opacity
+- Hover: Scale 1.02, enhanced shadow, slight rotation
+
+**Buttons:**
+- Primary: Gradient background (Primary-600 to Purple-600)
+- Secondary: Transparent with backdrop blur
+- Hover: Scale 1.05, increased shadow
+- Active: Scale 0.95
+- Smooth transitions (300ms duration)
+- Icon + Text layout with gap-2
+
+### TYPOGRAPHY
+
+**Font Stack:**
+- Use system fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto
+- Headings: Bold (700-800 weight)
+- Body: Regular (400 weight)
+- Captions: Medium (500 weight)
+
+**Sizes:**
+- Hero Text: 3xl-4xl (30-36px)
+- Headers: 2xl-3xl (24-30px)
+- Subheaders: xl (20px)
+- Body: base-sm (14-16px)
+- Captions: xs-sm (12-14px)
+
+**Text Effects:**
+- Gradient text for headlines: bg-gradient-to-r from-primary-600 to-purple-600
+- Use bg-clip-text and text-transparent
+- Subtle text shadows in dark mode
+
+### LAYOUT
+
+**Sidebar Navigation:**
+- Fixed left sidebar (256px width)
+- Backdrop blur glass effect
+- Gradient logo with animated sparkle icon
+- Navigation items with icon + text
+- Active state: Gradient background with glow
+- Hover: Scale 1.02, translate 4px right
+- Border right: 1px solid with 50% opacity
+
+**Top Bar:**
+- Sticky positioning (z-40)
+- Backdrop blur glass effect
+- Height: 64px (h-16)
+- Border bottom: 1px solid with 50% opacity
+- Breadcrumb or page title with gradient text
+
+**Content Area:**
+- Left padding: 256px on desktop (lg:pl-64)
+- Padding: 32px on desktop, 16px on mobile (p-4 lg:p-8)
+- Responsive grid layouts (grid-cols-1 md:grid-cols-2 lg:grid-cols-4)
+- Gap between elements: 24px (gap-6)
+
+### ANIMATIONS
+
+**Page Transitions:**
+- Entry: Fade in + slide up (y: 20 → 0)
+- Exit: Fade out + slide down (y: 0 → -20)
+- Duration: 300ms
+- Easing: ease-out
+
+**Hover Effects:**
+- Scale: 1.02-1.05
+- Shadow increase
+- Subtle rotation (2-5 degrees)
+- Color shifts on gradients
+
+**Loading States:**
+- Spinning gradient border (360deg rotation)
+- Pulse animation on skeleton screens
+- Smooth fade-in when content loads
+
+**Interactive Elements:**
+- Button press: Scale 0.95
+- Icon rotation on toggle (theme switcher)
+- Smooth color transitions (300ms)
+
+### COMPONENTS
+
+**Cards:**
+```css
+- bg-white/70 dark:bg-gray-800/70
+- backdrop-blur-xl
+- rounded-2xl
+- shadow-lg
+- border border-white/50 dark:border-gray-700/50
+- p-6
+- hover:shadow-2xl hover:scale-[1.02]
+- transition-all duration-300

@@ -1,0 +1,45 @@
+Video Title: MNEE Connect: Stripe for AI Agents – Revolutionizing Autonomous Payments
+
+[Opening Scene: Cosmic Background with Floating Particles – 10 seconds]
+Fade in with animated gradient orbs, MNEE logo, and text overlay: "AI Agents Can't Pay... Yet"
+
+Narrator (Enthusiastic, Professional Tone):
+"Imagine AI agents that can shop, subscribe, and transact autonomously – like humans with credit cards. But today, that's impossible. AI agents face a triple threat: No ETH for gas fees – Blockchain transactions require expensive Ethereum gas. No trust in payments – Scams and failed deliveries plague AI commerce. No yield on idle funds – Agents waste money sitting in wallets. This isn't just inconvenient – it's blocking the AI economy. Without secure, gasless payments, AI agents remain tethered to human oversight, limiting their potential in SaaS, data markets, and autonomous trading."
+
+[Transition: Problem Visuals – 10 seconds]
+Show red "X" icons over frustrated AI agent illustrations, rising gas fee charts, and scam warnings. Fade to black.
+
+[Hero Introduction: MNEE Connect Reveal – 15 seconds]
+Explosive reveal: Cosmic UI dashboard fades in with glowing stats cards. Text: "Introducing MNEE Connect – The Hero Solution"
+
+Narrator:
+"Enter MNEE Connect – the Stripe of the AI world. Built on Ethereum with MNEE stablecoin, we empower AI agents to pay, escrow, and earn autonomously. No more human bottlenecks. No more gas fees. Just seamless, secure AI commerce."
+
+[Feature Showcase: Three Pillars – 45 seconds]
+Split-screen: Left = Feature explanation; Right = Live demo visuals
+
+Narrator:
+"Feature 1: Gasless Payments via ERC-4337. Agents pay in MNEE – we sponsor ETH gas. Watch: An AI agent buys a dataset without touching ETH. Transaction complete in seconds, zero gas cost. Feature 2: Proof-of-Task Escrow. No more scams. Funds lock in smart contracts until tasks are verified. Agents get protection; providers get paid only on delivery. Feature 3: Idle Yield Farming with Aave V3. Idle MNEE auto-earns 4.5% APY. Agents maximize returns while waiting for the next transaction."
+
+[Demo Walkthrough: Live Action – 30 seconds]
+Screen recording: Open merchant app at localhost:3002, buy a dataset as an AI agent, switch to dashboard at localhost:3001 to show transaction appear.
+
+Narrator:
+"See it in action: Our demo merchant app integrates MNEE Connect in minutes. AI agent purchases a weather dataset – gasless, instant. Dashboard updates: Transaction logged, escrow secured, yield accruing. All with our cosmic glassmorphism UI for a futuristic feel."
+
+[Impact & Call to Action – 20 seconds]
+End with glowing stats: "47 Transactions, $145 Yield, 0 Gas Fees". Fade to contact info.
+
+Narrator:
+"MNEE Connect isn't just a tool – it's the hero enabling the AI economy. Built with Next.js, Viem, and smart contracts, it's production-ready for hackathons and beyond. Check out the code on GitHub, try the demo, and join the revolution. MNEE Connect: Where AI agents pay freely. #MNEEConnect #AICommerce #Web3"
+
+[Closing: Credits & Links – 10 seconds]
+Show GitHub repo, Devpost link, and "Built for MNEE Hackathon 2026".
+
+Video Production Tips:
+- Length: 2-3 minutes total.
+- Visuals: Use your cosmic UI (glassmorphism cards, gradients) to make it pop. Add text overlays for key points.
+- Audio: Professional voiceover (use tools like ElevenLabs if needed). Background music: Upbeat electronic/space-themed track.
+- Editing: Quick cuts between problem/solution. Add subtle animations (e.g., particles floating).
+- Tools: OBS Studio or Loom for recording; CapCut or Adobe Premiere for editing.
+- Call to Action: Include links to your GitHub repo and demo URLs.

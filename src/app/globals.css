@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode - Cosmic Theme */
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217.2 91.2% 59.8%;
+
+    --radius: 0.75rem;
+
+    /* Glassmorphism Colors */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Gradient Colors */
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --gradient-error: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    --gradient-info: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  }
+
+  .dark {
+    /* Dark Mode - Cosmic Theme */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Glassmorphism Colors - Dark */
+    --glass-bg: rgba(31, 41, 55, 0.7);
+    --glass-border: rgba(75, 85, 99, 0.5);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-purple-950 text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Cosmic Background Particles */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Animated Gradient Orbs */
+  .cosmic-orb {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    filter: blur(40px);
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .cosmic-orb:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .cosmic-orb:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    top: 60%;
+    right: 10%;
+    animation-delay: -5s;
+  }
+
+  .cosmic-orb:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    bottom: 20%;
+    left: 50%;
+    animation-delay: -10s;
+  }
+
+  .cosmic-orb:nth-child(4) {
+    width: 350px;
+    height: 350px;
+    top: 30%;
+    left: 70%;
+    animation-delay: -15s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+      transform: translateY(10px) rotate(240deg);
+    }
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-2xl shadow-lg border border-white/50 dark:border-gray-700/50 p-6 transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply shadow-2xl scale-[1.02];
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent;
+  }
+
+  /* Glass Button */
+  .glass-button {
+    @apply bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-white/50 dark:border-gray-700/50 rounded-xl px-6 py-3 font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .glass-button-primary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 hover:from-blue-700 hover:to-purple-700;
+  }
+
+  /* Sidebar Glass Effect */
+  .sidebar-glass {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-r border-white/50 dark:border-gray-700/50;
+  }
+
+  /* Top Bar Glass Effect */
+  .topbar-glass {
+    @apply bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border-b border-white/50 dark:border-gray-700/50;
+  }
+
+  /* Glass Inner Container */
+  .glass-card-inner {
+    @apply bg-black/5 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 dark:border-white/10;
+  }
+
+  /* Glass Input */
+  .glass-input {
+    @apply bg-white/10 dark:bg-black/10 backdrop-blur-md rounded-xl border border-white/20 dark:border-white/10 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "mnee-connect",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "MNEE Connect - Stripe-like SDK and dashboard for MNEE Stablecoin ecosystem",
+  "dependencies": {
+    "@prisma/client": "^7.2.0",
+    "@rainbow-me/rainbowkit": "^2.2.10",
+    "@tanstack/react-query": "^5.90.16",
+    "@types/node": "^25.0.6",
+    "@types/react": "^19.2.8",
+    "connectkit": "^1.9.1",
+    "next": "^14.2.35",
+    "permissionless": "^0.2.11",
+    "prisma": "^7.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.9.3",
+    "viem": "^2.44.1",
+    "wagmi": "^2.19.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@mnee-connect/sdk",
+  "version": "1.0.0",
+  "description": "MNEE Connect SDK - TypeScript library for MNEE Stablecoin payments",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["mnee", "stablecoin", "web3", "payments", "ethereum"],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "viem": "^2.0.0"
+  }
+}

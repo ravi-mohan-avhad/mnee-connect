@@ -1,0 +1,273 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// API Key Model for developer authentication
+model ApiKey {
+  id          String   @id @default(cuid())
+  key         String   @unique // Hashed API key
+  name        String   // Friendly name for the key
+  userId      String   // Developer/user identifier
+  permissions String[] // List of permissions (e.g., ["read", "write"])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  lastUsedAt  DateTime?
+  isActive    Boolean  @default(true)
+
+  transactions Transaction[]
+
+  @@index([userId])
+  @@index([key])
+}
+
+// Transaction Model for tracking payments
+model Transaction {
+  id              String            @id @default(cuid())
+  transactionHash String            @unique // Ethereum transaction hash
+  fromAddress     String            // Sender address
+  toAddress       String            // Recipient address
+  amount          String            // Amount in wei (stored as string to avoid precision issues)
+  amountFormatted String            // Human-readable amount
+  status          TransactionStatus @default(PENDING)
+  payerType       PayerType         @default(HUMAN)
+  
+  // Metadata
+  blockNumber     String?
+  gasUsed         String?
+  gasPrice        String?
+  timestamp       DateTime          @default(now())
+  confirmedAt     DateTime?
+  
+  // Relations
+  apiKeyId        String?
+  apiKey          ApiKey?           @relation(fields: [apiKeyId], references: [id])
+  
+  // Session key info (for agent payments)
+  sessionKeyId    String?
+  sessionKey      SessionKey?       @relation(fields: [sessionKeyId], references: [id])
+  
+  // Additional metadata
+  metadata        Json?             // Store additional data as JSON
+  
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@index([fromAddress])
+  @@index([toAddress])
+  @@index([status])
+  @@index([payerType])
+  @@index([timestamp])
+  @@index([transactionHash])
+}
+
+// Session Key Model for AI Agent authorization
+model SessionKey {
+  id              String   @id @default(cuid())
+  label           String?  // Optional friendly name
+  privateKey      String   @unique // Encrypted ephemeral private key
+  address         String   @unique // Session key address
+  ownerAddress    String   // Main account address
+  
+  spendLimit      String   // Maximum spending limit in wei
+  remainingLimit  String   // Remaining limit in wei
+  
+  expiresAt       DateTime // Expiration timestamp
+  createdAt       DateTime @default(now())
+  revokedAt       DateTime?
+  
+  isActive        Boolean  @default(true)
+  
+  transactions    Transaction[]
+
+  @@index([ownerAddress])
+  @@index([address])
+  @@index([expiresAt])
+  @@index([isActive])
+}
+
+// Webhook Event Model for logging webhook calls
+model WebhookEvent {
+  id          String   @id @default(cuid())
+  eventType   String   // e.g., "payment.success", "payment.failed"
+  payload     Json     // Full webhook payload
+  processed   Boolean  @default(false)
+  processedAt DateTime?
+  error       String?  // Store error message if processing failed
+  
+  createdAt   DateTime @default(now())
+  
+  @@index([eventType])
+  @@index([processed])
+  @@index([createdAt])
+}
+
+// Developer Analytics Model
+model Analytics {
+  id              String   @id @default(cuid())
+  userId          String
+  date            DateTime @default(now())
+  
+  // Metrics
+  totalVolume     String   // Total MNEE volume for the day
+  transactionCount Int      @default(0)
+  agentTransactions Int     @default(0)
+  humanTransactions Int     @default(0)
+  successfulTxs   Int      @default(0)
+  failedTxs       Int      @default(0)
+  
+  // Gas metrics
+  totalGasUsed    String?
+  avgGasPrice     String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([userId, date])
+  @@index([userId])
+  @@index([date])
+}
+
+// EscrowTransaction Model for Proof-of-Task escrow
+model EscrowTransaction {
+  id                String        @id @default(cuid())
+  taskId            String        @unique // Blockchain taskId from smart contract
+  agentAddress      String        // AI agent or client initiating task
+  providerAddress   String        // Service provider performing the task
+  amount            String        // MNEE amount locked (in wei)
+  amountFormatted   String        // Human-readable amount
+  
+  status            EscrowStatus  @default(ACTIVE)
+  taskDescription   String
+  deadline          DateTime
+  autoRefund        Boolean       @default(true)
+  
+  attestationUID    String?       // EAS attestation UID or webhook signature
+  contractAddress   String        // MneeEscrow contract address
+  
+  createdAt         DateTime      @default(now())
+  completedAt       DateTime?
+  refundedAt        DateTime?
+  disputedAt        DateTime?
+  
+  metadata          Json?         // Additional task metadata
+  
+  @@index([agentAddress])
+  @@index([providerAddress])
+  @@index([status])
+  @@index([deadline])
+}
+
+// PaymasterTransaction Model for gasless payment tracking
+model PaymasterTransaction {
+  id                String   @id @default(cuid())
+  userOpHash        String   @unique // UserOperation hash
+  transactionHash   String?  @unique // Actual blockchain tx hash
+  
+  agentAddress      String   // Agent making the payment
+  recipientAddress  String   // Payment recipient
+  amount            String   // MNEE amount transferred
+  amountFormatted   String   // Human-readable amount
+  
+  gasCostInWei      String   // Gas cost in wei
+  gasCostInMnee     String   // Gas cost in MNEE tokens
+  
+  sessionKeyId      String?  // Related session key
+  paymasterAddress  String   // Paymaster contract address
+  bundlerUrl        String?  // Bundler service URL
+  
+  status            PaymasterStatus @default(PENDING)
+  success           Boolean  @default(false)
+  error             String?  // Error message if failed
+  
+  createdAt         DateTime @default(now())
+  confirmedAt       DateTime?
+  
+  @@index([agentAddress])
+  @@index([recipientAddress])
+  @@index([status])
+  @@index([userOpHash])
+}
+
+// YieldDeposit Model for Aave yield farming tracking
+model YieldDeposit {
+  id                String      @id @default(cuid())
+  userAddress       String
+  
+  depositAmount     String      // Original MNEE deposit amount (in wei)
+  depositFormatted  String      // Human-readable deposit amount
+  
+  currentBalance    String      // Current aToken balance
+  accruedYield      String      // Interest earned (currentBalance - depositAmount)
+  yieldFormatted    String      // Human-readable yield
+  
+  aavePoolAddress   String      // Aave V3 Pool contract address
+  aTneeTokenAddress String?     // aMNEE token address
+  
+  isActive          Boolean     @default(true)
+  yieldModeEnabled  Boolean     @default(true)
+  
+  depositTxHash     String?     // Deposit transaction hash
+  withdrawTxHash    String?     // Withdrawal transaction hash
+  
+  depositedAt       DateTime    @default(now())
+  withdrawnAt       DateTime?
+  lastUpdatedAt     DateTime    @updatedAt
+  
+  apy               String?     // APY at time of deposit
+  
+  metadata          Json?       // Additional yield data
+  
+  @@index([userAddress])
+  @@index([isActive])
+  @@index([depositedAt])
+}
+
+// User Settings Model for yield mode preferences
+model UserSettings {
+  id                String   @id @default(cuid())
+  userAddress       String   @unique
+  
+  yieldModeEnabled  Boolean  @default(false)
+  minIdleBalance    String   @default("100") // Minimum MNEE for yield farming
+  idleDurationHours Int      @default(24)     // Hours of inactivity required
+  
+  autoYieldEnabled  Boolean  @default(false)  // Automatic yield farming
+  
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  @@index([userAddress])
+  @@index([yieldModeEnabled])
+}
+
+// Enums
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+  FAILED
+}
+
+enum PayerType {
+  HUMAN
+  AI_AGENT
+}
+
+enum EscrowStatus {
+  ACTIVE
+  COMPLETED
+  REFUNDED
+  DISPUTED
+}
+
+enum PaymasterStatus {
+  PENDING
+  CONFIRMED
+  FAILED
+}
