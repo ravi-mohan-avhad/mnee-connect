@@ -24,22 +24,22 @@ export default function DocsPage() {
           <DocCard 
             title="Getting Started" 
             description="Install the SDK and configure your first agent in minutes."
-            icon="🚀"
+            icon="◉"
           />
           <DocCard 
             title="Gasless Payments" 
             description="Enable ERC-4337 sponsored transactions with Pimlico."
-            icon="⚡"
+            icon="◇"
           />
           <DocCard 
             title="Session Keys" 
             description="Authorize autonomous spending with strict limits."
-            icon="🤖"
+            icon="◆"
           />
           <DocCard 
             title="Escrow Protocol" 
             description="Implement proof-of-task verification for secure commerce."
-            icon="🔒"
+            icon="◈"
           />
         </div>
 

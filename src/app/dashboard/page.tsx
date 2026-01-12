@@ -33,7 +33,7 @@ export default function DashboardPage() {
           {/* Yield Farming Toggle */}
           <section className="space-y-4">
             <h2 className="text-2xl font-bold gradient-text flex items-center gap-2">
-              <span>🌱</span> Passive Yield
+              <span>◐</span> Passive Yield
             </h2>
             <YieldModeToggle />
           </section>
@@ -41,7 +41,7 @@ export default function DashboardPage() {
           {/* API Key Management */}
           <section className="space-y-4">
             <h2 className="text-2xl font-bold gradient-text flex items-center gap-2">
-              <span>🔑</span> Developer Access
+              <span>◈</span> Developer Access
             </h2>
             <ApiKeyManager />
           </section>
@@ -51,7 +51,7 @@ export default function DashboardPage() {
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold gradient-text flex items-center gap-2">
-              <span>💸</span> Recent Activity
+              <span>◉</span> Recent Activity
             </h2>
             <div className="text-sm text-muted-foreground bg-white/5 px-3 py-1 rounded-full border border-white/10">
               Live updates enabled

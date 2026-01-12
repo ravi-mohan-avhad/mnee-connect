@@ -177,7 +177,7 @@ export default function YieldModeToggle() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/25">
-            <span className="text-white text-xl">🌱</span>
+            <span className="text-white text-xl">◐</span>
           </div>
           <div>
             <h3 className="text-xl font-bold gradient-text">Yield Farming Mode</h3>
@@ -213,7 +213,7 @@ export default function YieldModeToggle() {
           <div className="flex items-center justify-between p-4 rounded-xl bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
-                <span className="text-white text-sm">⚡</span>
+                <span className="text-white text-sm">◇</span>
               </div>
               <div>
                 <p className="font-medium">Automatic Yield Farming</p>

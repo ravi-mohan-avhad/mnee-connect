@@ -31,9 +31,13 @@ export default function SessionKeysPage() {
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Initialize demo data on client side only
+  // Initialize mounted state
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Initialize demo data on client side only
+  useEffect(() => {
     if (demoMode) {
       const demoKeys: SessionKey[] = [
         {
@@ -135,7 +139,7 @@ export default function SessionKeysPage() {
             </div>
           ) : keys.length === 0 ? (
             <div className="py-20 text-center text-muted-foreground">
-              <div className="text-4xl mb-4">🤖</div>
+              <div className="text-4xl mb-4">◆</div>
               <p>No active session keys found.</p>
               <p className="text-sm">Authorize an agent to get started.</p>
             </div>

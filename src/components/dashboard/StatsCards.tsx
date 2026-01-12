@@ -105,7 +105,7 @@ export default function StatsCards() {
   const demoBanner = (
     <div className="glass-card p-4 mb-4 border-2 border-blue-500/30">
       <div className="flex items-center gap-3">
-        <div className="text-2xl">🎭</div>
+        <div className="text-2xl">▣</div>
         <div className="flex-1">
           <h4 className="font-semibold text-sm gradient-text">Demo Mode Active</h4>
           <p className="text-xs text-muted-foreground">Showing realistic sample data. Connect wallet for live transactions.</p>
@@ -123,35 +123,35 @@ export default function StatsCards() {
     {
       title: 'Current Balance',
       value: demoMode ? '8,542.75 MNEE' : (balance ? `${parseFloat(balance).toFixed(2)} MNEE` : '0 MNEE'),
-      icon: '💰',
+      icon: '◉',
       gradient: 'from-blue-600 to-cyan-600',
       description: 'Available MNEE tokens',
     },
     {
       title: 'Total Volume',
       value: `${stats.totalVolume} MNEE`,
-      icon: '📈',
+      icon: '◐',
       gradient: 'from-purple-600 to-pink-600',
       description: 'Lifetime transaction volume',
     },
     {
       title: 'Total Transactions',
       value: stats.transactionCount.toString(),
-      icon: '💸',
+      icon: '◈',
       gradient: 'from-green-600 to-emerald-600',
       description: 'All payment transactions',
     },
     {
       title: 'AI Agent Payments',
       value: stats.agentTransactions.toString(),
-      icon: '🤖',
+      icon: '◆',
       gradient: 'from-orange-600 to-red-600',
       description: 'Gasless agent transactions',
     },
     {
       title: 'Accrued Yield',
       value: `${parseFloat(stats.yieldEarned).toFixed(6)} MNEE`,
-      icon: '🌱',
+      icon: '◇',
       gradient: 'from-emerald-600 to-teal-600',
       subtitle: `${stats.yieldApy}% APY`,
       description: 'Aave V3 yield earnings',

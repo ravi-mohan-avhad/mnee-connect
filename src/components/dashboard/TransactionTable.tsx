@@ -232,7 +232,7 @@ export default function TransactionTable() {
                         tx.payerType
                       )}`}
                     >
-                      {tx.payerType === 'AI_AGENT' ? '🤖 AI Agent' : '👤 Human'}
+                      {tx.payerType === 'AI_AGENT' ? '◆ AI Agent' : '◇ Human'}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">

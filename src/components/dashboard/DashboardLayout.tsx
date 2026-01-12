@@ -21,25 +21,25 @@ const navItems: NavItem[] = [
   {
     label: 'Dashboard',
     href: '/dashboard',
-    icon: '🚀',
+    icon: '◉',
     description: 'Overview & Analytics'
   },
   {
     label: 'Transactions',
     href: '/dashboard/transactions',
-    icon: '💸',
+    icon: '◉',
     description: 'Payment History'
   },
   {
     label: 'API Keys',
     href: '/dashboard/api-keys',
-    icon: '🔑',
+    icon: '◈',
     description: 'Developer Access'
   },
   {
     label: 'Session Keys',
     href: '/dashboard/session-keys',
-    icon: '🤖',
+    icon: '◆',
     description: 'Agent Authorization'
   },
   {

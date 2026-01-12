@@ -106,7 +106,7 @@ export default function Home() {
         {/* Header */}
         <header className="mb-12 text-center">
           <div className="inline-block mb-4 px-4 py-2 glass-card">
-            <span className="text-sm font-semibold">⚡ Powered by MNEE Protocol</span>
+            <span className="text-sm font-semibold">◇ Powered by MNEE Protocol</span>
           </div>
           <h1 className="text-6xl font-bold mb-4">
             <span className="gradient-text">AI Tools Marketplace</span>

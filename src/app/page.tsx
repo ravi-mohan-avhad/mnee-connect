@@ -59,7 +59,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
             <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 animate-pulse"></div>
-            <span className="text-sm font-medium gradient-text">🚀 Production-Ready Agent Commerce</span>
+            <span className="text-sm font-medium gradient-text">◉ Production-Ready Agent Commerce</span>
           </div>
 
           <h2 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
@@ -78,13 +78,13 @@ export default function Home() {
               href="/dashboard"
               className="px-8 py-4 glass-button glass-button-primary text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
             >
-              🚀 Launch Dashboard
+              ◉ Launch Dashboard
             </Link>
             <Link
               href="DEMO_GUIDE.md"
               className="px-8 py-4 glass-button text-lg font-semibold hover:scale-105 transition-all duration-300"
             >
-              📋 Demo Guide
+              ● Demo Guide
             </Link>
           </div>
 
@@ -117,42 +117,42 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard
-            icon="⚡"
+            icon="◇"
             title="Gasless Payments"
             description="AI agents pay in MNEE, not ETH. ERC-4337 account abstraction with Pimlico paymasters."
             gradient="from-blue-600 to-cyan-600"
             glow="shadow-blue-500/25"
           />
           <FeatureCard
-            icon="🔒"
+            icon="◈"
             title="Proof-of-Task Escrow"
             description="Smart contract protection against agent scams. Funds locked until work is verified."
             gradient="from-purple-600 to-pink-600"
             glow="shadow-purple-500/25"
           />
           <FeatureCard
-            icon="🌱"
+            icon="◐"
             title="Idle Yield Farming"
             description="Automatic Aave V3 deposits for idle MNEE balances. Earn ~4.5% APY passively."
             gradient="from-emerald-600 to-teal-600"
             glow="shadow-emerald-500/25"
           />
           <FeatureCard
-            icon="🤖"
+            icon="◆"
             title="Session Keys"
             description="Ephemeral signers with spend limits for secure agent-to-agent transactions."
             gradient="from-orange-600 to-red-600"
             glow="shadow-orange-500/25"
           />
           <FeatureCard
-            icon="📊"
+            icon="◉"
             title="Developer Dashboard"
             description="Real-time monitoring, transaction history, and yield tracking with cosmic UI."
             gradient="from-indigo-600 to-purple-600"
             glow="shadow-indigo-500/25"
           />
           <FeatureCard
-            icon="🔧"
+            icon="▣"
             title="TypeScript SDK"
             description="Fully typed SDK with 7 new methods for gasless payments, escrow, and yield."
             gradient="from-teal-600 to-cyan-600"
@@ -188,7 +188,7 @@ export default function Home() {
             href="DEMO_GUIDE.md"
             className="inline-flex items-center gap-2 px-6 py-3 glass-button glass-button-primary font-medium hover:scale-105 transition-transform"
           >
-            📋 Complete Demo Guide
+            ● Complete Demo Guide
           </Link>
         </div>
       </section>
